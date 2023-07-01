@@ -1,0 +1,61 @@
+.layout {
+  height: 85vh;
+  /* border: 2px solid red; */
+  background-color: rgb(251, 248, 241);
+  /* background-color: rgb(34, 23, 42); */
+  /* transform: translateY(-10rem); */
+  font-family: "Montserrat", sans-serif;
+}
+
+.landing-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* align-content: flex-end; */
+  /* border: 2px solid red; */
+  height: 100%;
+}
+.landing-section-left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  /* border: 2px solid red; */
+}
+.landing-section-right {
+  display: flex;
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
+
+  /* border: 2px solid red; */
+}
+.landing-section-right img {
+  transform: translateY(1rem);
+}
+
+.landing-section-text {
+  font-size: 4rem;
+  text-align: start;
+  font-weight: 600;
+  padding: 0 2rem;
+}
+.highlight-text {
+  color: rgb(122, 38, 193);
+}
+
+.landing-section-subtext {
+  font-size: 2rem;
+  padding: 0 2rem;
+  text-align: start;
+}
+.steps-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* align-content: flex-end; */
+  /* border: 2px solid red; */
+  height: 100%;
+}

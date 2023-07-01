@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+.layout {
+  /* position: fixed; */
+  width: 100%;
+  color: white;
+  background-color: rgb(122,38,193);
+  /* background-color: rgb(247, 242, 250); */
+  /* background-color: rgb(34, 23, 42); */
+  /* background-color: rgba(255, 255, 255, 0.08); */
+  /* background-color: transparent; */
+  font-family: Montserrat, sans-serif;
+}
+.padding {
+  padding: 1.6rem;
+}
+.main-logo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-logo img {
+  width: 5rem;
+  cursor: pointer;
+}
+
+.main-pages-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  font-size: 1.2rem;
+  /* width: 40%; */
+}
+/* .main-pages-navigation div {
+  margin: 0 1.6em;
+} */
+.main-pages-navigation-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-pages-navigation button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  width: 12rem;
+  cursor: pointer;
+  padding: 1rem;
+  box-shadow: 0px 0px 6.21182px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.menu-icon {
+  font-size: 2.4rem;
+}
+/* Mobile screens */
+.sidebar {
+  background-color: white;
+  width: 19rem;
+  height: 100%;
+  position: fixed;
+
+  right: 0;
+  top: 0;
+  z-index: 10;
+  /* transform: translateX(35%); */
+  display: none;
+}
+.sidebarBackdrop {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  height: 100%;
+  display: none;
+  z-index: 2;
+}
+.sidebarHeader {
+  display: block;
+  text-align: left;
+  margin-bottom: 2.4rem;
+}
+.sidebar div {
+  color: black;
+}
+.kebab {
+  display: none;
+}
+
+.sidebar-navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2em 1em;
+}
+.ui-icons {
+  position: absolute;
+  left: 16rem;
+  top: 1rem;
+}
+
+.sidebarNavItems {
+  padding: 0 0.3rem;
+}
+.main-pages-navlinks {
+  cursor: pointer;
+  margin: 0 1.4rem;
+  text-decoration: none;
+  color: white;
+}
+.main-pages-navlinks:first-child {
+  margin-left: 0;
+}
+.main-pages-navlinks:last-child {
+  margin-right: 0;
+}
+.searchIcon {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.callIcon {
+  background-color: #1e78fe;
+  padding: 0.8rem;
+  border-radius: 1.2rem;
+  margin-right: 1rem;
+}
+.contactNo {
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 1200px) {
+  .layout {
+    font-size: 1.2rem;
+  }
+  .main-pages-navlinks {
+    margin: 0 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 1108px) {
+  .sidebar {
+    display: block;
+  }
+  .sidebarBackdrop {
+    display: block;
+  }
+
+  .layout {
+    background-color: #16133a;
+  }
+  .padding {
+    padding: 0.8rem;
+  }
+  .brandLogoMob {
+    width: 12.5rem;
+    margin: 1.2rem 0rem 0rem 1.2rem;
+  }
+  .kebab {
+    display: block;
+  }
+  .main-pages-navigation-right {
+    display: none;
+  }
+  .logo-kebab-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .main-pages-navigation {
+    display: none;
+  }
+}
