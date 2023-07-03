@@ -11,7 +11,7 @@ const Dashboard = () => {
   const { user, loading } = useContext(Context);
   const [locationSearch, setLocationSearch] = useState("");
   const [jobTitleSearch, setJobTitleSearch] = useState("");
-
+  
   return loading ? (
     <Loader />
   ) : (

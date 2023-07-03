@@ -4,6 +4,7 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { Context } from "../..";
 import classes from "./Listing.module.css";
+import toast from "react-hot-toast";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -18,6 +19,7 @@ const Listing = ({ id, name, job, location, exp, img, contact }) => {
       const updatedSavedCandidates = savedCandidates.filter((c) => c === id);
       setSavedCandidates(updatedSavedCandidates);
     }
+    toast.success("Candidate saved successfully!");
   };
 
   return (
