@@ -4,7 +4,8 @@
   /* position: fixed; */
   width: 100%;
   color: white;
-  background-color: rgb(122,38,193);
+  background: linear-gradient(to right, #7a26c1, #61045f);
+  /* background-color: rgb(122,38,193); */
   /* background-color: rgb(247, 242, 250); */
   /* background-color: rgb(34, 23, 42); */
   /* background-color: rgba(255, 255, 255, 0.08); */
@@ -22,7 +23,7 @@
 }
 
 .main-logo img {
-  width: 5rem;
+  width: 8rem;
   cursor: pointer;
 }
 
@@ -90,7 +91,9 @@
 .kebab {
   display: none;
 }
-
+.logo-kebab-layout img {
+  width: 4.8rem;
+}
 .sidebar-navigation-buttons {
   display: flex;
   justify-content: center;
@@ -106,6 +109,7 @@
 
 .sidebarNavItems {
   padding: 0 0.3rem;
+  text-decoration: none;
 }
 .main-pages-navlinks {
   cursor: pointer;
@@ -156,8 +160,9 @@
     padding: 0.8rem;
   }
   .brandLogoMob {
-    width: 12.5rem;
+    width: 8.5rem;
     margin: 1.2rem 0rem 0rem 1.2rem;
+    text-align: center;
   }
   .kebab {
     display: block;

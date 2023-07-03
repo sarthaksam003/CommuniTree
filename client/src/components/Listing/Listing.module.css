@@ -1,0 +1,30 @@
+.listing-card {
+  height: 6rem;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 2rem 0;
+  padding: 1rem;
+}
+.listing-details {
+  width: auto;
+  display: flex;
+}
+@media only screen and (max-width: 1000px) {
+  .listing-card {
+    /* border: 2px solid red; */
+    height: auto;
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem 2rem 0;
+    padding: 1rem;
+  }
+  .listing-details {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

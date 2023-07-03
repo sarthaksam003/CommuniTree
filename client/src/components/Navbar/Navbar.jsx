@@ -1,17 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import classes from "./Navbar.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
 import { ListItem, ListItemText, Divider } from "@mui/material";
-import { Link } from "react-router-dom";
-import CallIcon from "@mui/icons-material/Call";
+import { Link, useNavigate } from "react-router-dom";
+// import CallIcon from "@mui/icons-material/Call";
+import { Context, server } from "../..";
+import toast from "react-hot-toast";
+import axios from "axios";
 const Navbar = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
+  const navigate = useNavigate();
+  const { isAuthenticated, setIsAuthenticated, setLoading } =
+    useContext(Context);
   const toggleSideBarHandler = () => {
     setToggleSidebar(!toggleSidebar);
   };
 
+  const logoutHandler = async () => {
+    try {
+      await axios.get(`${server}/users/logout`, {
+        withCredentials: true,
+      });
+
+      toast.success("Logged Out Successfully");
+      setIsAuthenticated(false);
+      setLoading(false);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.response.data.message);
+      setIsAuthenticated(true);
+      setLoading(false);
+    }
+  };
   return (
     <div className={classes.layout}>
       {toggleSidebar && (
@@ -22,11 +44,13 @@ const Navbar = () => {
                 className={classes.sidebarHeader}
                 style={{ position: "relative" }}
               >
-                <img
-                  src="/brandlogosidebar.svg"
-                  alt="brand-logo"
-                  className={classes.brandLogoMob}
-                />
+                <div style={{ textAlign: "center", width: "100%" }}>
+                  <img
+                    src="/my-image.png"
+                    alt="brand-logo"
+                    className={classes.brandLogoMob}
+                  />
+                </div>
                 <CloseIcon
                   className={classes["ui-icons"]}
                   onClick={toggleSideBarHandler}
@@ -34,32 +58,58 @@ const Navbar = () => {
               </div>
               <div>
                 <Divider />
-                <Link to="/">
-                  <ListItem button>
-                    <ListItemText
-                      primary="Home"
-                      className={classes.sidebarNavItems}
-                    />
-                  </ListItem>
-                </Link>
+                {isAuthenticated && (
+                  <Link to="/home" className={classes.sidebarNavItems}>
+                    <ListItem button>
+                      <ListItemText primary="Home" />
+                    </ListItem>
+                  </Link>
+                )}
                 <Divider />
-                <Link to="/">
-                  <ListItem button>
-                    <ListItemText
-                      primary="Login"
-                      className={classes.sidebarNavItems}
-                    />
-                  </ListItem>
-                </Link>
                 <Divider />
-                <Link to="/register">
-                  <ListItem button>
-                    <ListItemText
-                      primary="Register"
-                      className={classes.sidebarNavItems}
-                    />
-                  </ListItem>
-                </Link>
+                {isAuthenticated && (
+                  <Link
+                    to="/savedcandidates"
+                    className={classes.sidebarNavItems}
+                  >
+                    <ListItem button>
+                      <ListItemText primary="Saved Applications" />
+                    </ListItem>
+                  </Link>
+                )}
+                <Divider />
+                {!isAuthenticated && (
+                  <Link to="/" className={classes.sidebarNavItems}>
+                    <ListItem button>
+                      <ListItemText primary="Login" />
+                    </ListItem>
+                  </Link>
+                )}
+                <Divider />
+                {isAuthenticated && (
+                  <Link
+                    onClick={logoutHandler}
+                    className={classes.sidebarNavItems}
+                  >
+                    <ListItem button>
+                      <ListItemText
+                        primary="Logout"
+                        className={classes.sidebarNavItems}
+                      />
+                    </ListItem>
+                  </Link>
+                )}
+                <Divider />
+                {!isAuthenticated && (
+                  <Link to="/register" className={classes.sidebarNavItems}>
+                    <ListItem button>
+                      <ListItemText
+                        primary="Register"
+                        className={classes.sidebarNavItems}
+                      />
+                    </ListItem>
+                  </Link>
+                )}
                 <Divider />
                 <Divider />
               </div>
@@ -72,27 +122,43 @@ const Navbar = () => {
         <div className={classes["main-logo"]}>
           <Link to="/" className={classes["logo-kebab-layout"]}>
             <img
-              src="/logo-no-background.svg"
+              src="/finalbrandlogo.png"
               alt="brand-logo"
               className={classes.brandlogo}
             />
           </Link>
           <div className={classes["main-pages-navigation"]}>
-            <Link to="/" className={classes["main-pages-navlinks"]}>
-              <div>Home</div>
-            </Link>
-            <Link to="/login" className={classes["main-pages-navlinks"]}>
-              <div>Login</div>
-            </Link>
-            <Link to="/register" className={classes["main-pages-navlinks"]}>
-              <div>Register</div>
-            </Link>
+            {isAuthenticated && (
+              <Link to="/home" className={classes["main-pages-navlinks"]}>
+                <div>Home</div>
+              </Link>
+            )}
+            {isAuthenticated && (
+              <Link
+                to="/savedcandidates"
+                className={classes["main-pages-navlinks"]}
+              >
+                <div>Saved Applications</div>
+              </Link>
+            )}
+            {isAuthenticated ? (
+              <div
+                onClick={logoutHandler}
+                className={classes["main-pages-navlinks"]}
+              >
+                <div>Logout</div>
+              </div>
+            ) : (
+              <Link to="/login" className={classes["main-pages-navlinks"]}>
+                <div>Login</div>
+              </Link>
+            )}
+            {!isAuthenticated && (
+              <Link to="/register" className={classes["main-pages-navlinks"]}>
+                <div>Register</div>
+              </Link>
+            )}
           </div>
-          {/* <div className={classes["main-pages-navigation-right"]}>
-            <SearchIcon className={classes.searchIcon} sx={{ fontSize: 30 }} />
-            <CallIcon className={classes.callIcon} sx={{ fontSize: 30 }} />
-            <span className={classes.contactNo}>(+91) 93 11 88 65 99</span>
-          </div> */}
           <div className={classes.kebab} onClick={toggleSideBarHandler}>
             {!toggleSidebar && <MenuIcon className={classes["menu-icon"]} />}
           </div>

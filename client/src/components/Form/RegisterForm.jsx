@@ -65,7 +65,7 @@ const initialRegisterValues = {
 };
 
 //toggleSuccesModal is accepted as props from App.jsx to make the success modal work properly
-const RegisterForm = ({ toggleSuccesModal }) => {
+const RegisterForm = ({ mode, toggleSuccesModal }) => {
   /*This is a CSS media query hook for React offered by MaterialUI. It listens for matches to a CSS media query. 
   It allows the rendering of components based on whether the query matches or not.*/
 
@@ -110,7 +110,7 @@ const RegisterForm = ({ toggleSuccesModal }) => {
         action.resetForm();
       },
     });
-
+  console.log(mode);
   return (
     <React.Fragment>
       <Paper
@@ -138,46 +138,50 @@ const RegisterForm = ({ toggleSuccesModal }) => {
             <Typography variant="h4">Register</Typography>
           </Box>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First name"
-                value={values.firstName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.firstName && touched.firstName
-                    ? `${errors.firstName}`
-                    : ""
-                }
-                error={errors.firstName && touched.firstName}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last name"
-                name="lastName"
-                autoComplete="lname"
-                value={values.lastName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.lastName && touched.lastName
-                    ? `${errors.lastName}`
-                    : ""
-                }
-                error={errors.lastName && touched.lastName}
-              />
-            </Grid>
+            {mode === "register" && (
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="fname"
+                  name="firstName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First name"
+                  value={values.firstName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  helperText={
+                    errors.firstName && touched.firstName
+                      ? `${errors.firstName}`
+                      : ""
+                  }
+                  error={errors.firstName && touched.firstName}
+                />
+              </Grid>
+            )}
+            {mode === "register" && (
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last name"
+                  name="lastName"
+                  autoComplete="lname"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  helperText={
+                    errors.lastName && touched.lastName
+                      ? `${errors.lastName}`
+                      : ""
+                  }
+                  error={errors.lastName && touched.lastName}
+                />
+              </Grid>
+            )}
             <Grid item xs={12}>
               <TextField
                 required
@@ -216,26 +220,28 @@ const RegisterForm = ({ toggleSuccesModal }) => {
                 error={errors.password && touched.password}
               />
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="confirmPassword"
-                label="Confirm password"
-                type="password"
-                id="confirmPassword"
-                value={values.confirmPassword}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                helperText={
-                  errors.confirmPassword && touched.confirmPassword
-                    ? `${errors.confirmPassword}`
-                    : ""
-                }
-                error={errors.confirmPassword && touched.confirmPassword}
-              />
-            </Grid>
+            {mode === "register" && (
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="confirmPassword"
+                  label="Confirm password"
+                  type="password"
+                  id="confirmPassword"
+                  value={values.confirmPassword}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  helperText={
+                    errors.confirmPassword && touched.confirmPassword
+                      ? `${errors.confirmPassword}`
+                      : ""
+                  }
+                  error={errors.confirmPassword && touched.confirmPassword}
+                />
+              </Grid>
+            )}
           </Grid>
           <Button
             type="submit"
