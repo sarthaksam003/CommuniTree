@@ -227,10 +227,8 @@ const RegisterForm = ({ toggleSuccesModal }) => {
                     m: "2rem 0",
                   }}
                 >
-                  <nobr>
-                    Already have an account? Click here to&nbsp;
-                    <span style={{ color: "#7A26C0" }}>Login</span>
-                  </nobr>
+                  Already have an account? Click here to&nbsp;
+                  <span style={{ color: "#7A26C0" }}>Login</span>
                 </Typography>
               </Link>
             </Box>

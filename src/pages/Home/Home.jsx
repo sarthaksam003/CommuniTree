@@ -11,28 +11,28 @@ import SmartToyIcon from "@mui/icons-material/SmartToy";
 import BenefitsCarousel from "../../components/Carousel/Carousel";
 import Footer from "../../components/Footer/Footer";
 
-const styles = makeStyles({
-  getStartedButton: {
-    color: "white !important",
-    // width: "15rem!important",
-    height: "4rem!important",
-    fontSize: "2rem!important",
-    fontWeight: "600 !important",
-    fontFamily: "Montserrat !important",
-    backgroundColor: "#8A2BE2 !important",
-    textTransform: "capitalize!important",
-    margin: "0 2rem!important",
-    border: "none !important",
-    transition: "transform 300ms ease-in !important",
-    "&:hover": {
-      transform: "scale(1.05)",
-      backgroundColor: "#B569FC !important",
-    },
-  },
-});
+// const styles = makeStyles({
+//   getStartedButton: {
+//     color: "white !important",
+//     // width: "15rem!important",
+//     height: "4rem!important",
+//     fontSize: "2rem!important",
+//     fontWeight: "600 !important",
+//     fontFamily: "Montserrat !important",
+//     backgroundColor: "#8A2BE2 !important",
+//     textTransform: "capitalize!important",
+//     margin: "0 2rem!important",
+//     border: "none !important",
+//     transition: "transform 300ms ease-in !important",
+//     "&:hover": {
+//       transform: "scale(1.05)",
+//       backgroundColor: "#B569FC !important",
+//     },
+//   },
+// });
 
 const Home = () => {
-  const styling = styles();
+  // const styling = styles();
   return (
     <div className={classes.layout}>
       <section className={classes["landing-section"]}>
@@ -50,7 +50,7 @@ const Home = () => {
           </div>
           <div>
             <Link to="/login">
-              <Button variant="outlined" className={styling.getStartedButton}>
+              <Button variant="outlined" className={classes.getStartedButton}>
                 Get Started
                 <KeyboardArrowRightIcon sx={{ fontSize: "2.5rem" }} />
               </Button>

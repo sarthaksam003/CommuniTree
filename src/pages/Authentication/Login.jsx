@@ -143,10 +143,8 @@ const Login = ({ toggleSuccesModal }) => {
                     m: "2rem 0",
                   }}
                 >
-                  <nobr>
-                    Don't have an account? Click here to&nbsp;
-                    <span style={{ color: "#7A26C0" }}>Register</span>
-                  </nobr>
+                  Don't have an account? Click here to&nbsp;
+                  <span style={{ color: "#7A26C0" }}>Register</span>
                 </Typography>
               </Link>
             </Box>

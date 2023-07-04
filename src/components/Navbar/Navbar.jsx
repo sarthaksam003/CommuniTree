@@ -2,10 +2,8 @@ import React, { useState, useContext } from "react";
 import classes from "./Navbar.module.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-// import SearchIcon from "@mui/icons-material/Search";
 import { ListItem, ListItemText, Divider } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-// import CallIcon from "@mui/icons-material/Call";
 import { Context, server } from "../..";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -33,6 +31,7 @@ const Navbar = () => {
       setIsAuthenticated(true);
       setLoading(false);
     }
+    toggleSideBarHandler();
   };
   return (
     <div className={classes.layout}>
@@ -59,7 +58,11 @@ const Navbar = () => {
               <div>
                 <Divider />
                 {isAuthenticated && (
-                  <Link to="/home" className={classes.sidebarNavItems}>
+                  <Link
+                    to="/home"
+                    className={classes.sidebarNavItems}
+                    onClick={toggleSideBarHandler}
+                  >
                     <ListItem button>
                       <ListItemText primary="Home" />
                     </ListItem>
@@ -71,6 +74,7 @@ const Navbar = () => {
                   <Link
                     to="/savedcandidates"
                     className={classes.sidebarNavItems}
+                    onClick={toggleSideBarHandler}
                   >
                     <ListItem button>
                       <ListItemText primary="Saved Applications" />
@@ -79,7 +83,11 @@ const Navbar = () => {
                 )}
                 <Divider />
                 {!isAuthenticated && (
-                  <Link to="/" className={classes.sidebarNavItems}>
+                  <Link
+                    to="/login"
+                    className={classes.sidebarNavItems}
+                    onClick={toggleSideBarHandler}
+                  >
                     <ListItem button>
                       <ListItemText primary="Login" />
                     </ListItem>
@@ -101,7 +109,11 @@ const Navbar = () => {
                 )}
                 <Divider />
                 {!isAuthenticated && (
-                  <Link to="/register" className={classes.sidebarNavItems}>
+                  <Link
+                    to="/register"
+                    className={classes.sidebarNavItems}
+                    onClick={toggleSideBarHandler}
+                  >
                     <ListItem button>
                       <ListItemText
                         primary="Register"
