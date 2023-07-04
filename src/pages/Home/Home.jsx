@@ -3,7 +3,6 @@ import classes from "./Home.module.css";
 import Button from "@mui/material/Button";
 import { Paper, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@mui/styles";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import VideoChatIcon from "@mui/icons-material/VideoChat";
@@ -11,28 +10,7 @@ import SmartToyIcon from "@mui/icons-material/SmartToy";
 import BenefitsCarousel from "../../components/Carousel/Carousel";
 import Footer from "../../components/Footer/Footer";
 
-// const styles = makeStyles({
-//   getStartedButton: {
-//     color: "white !important",
-//     // width: "15rem!important",
-//     height: "4rem!important",
-//     fontSize: "2rem!important",
-//     fontWeight: "600 !important",
-//     fontFamily: "Montserrat !important",
-//     backgroundColor: "#8A2BE2 !important",
-//     textTransform: "capitalize!important",
-//     margin: "0 2rem!important",
-//     border: "none !important",
-//     transition: "transform 300ms ease-in !important",
-//     "&:hover": {
-//       transform: "scale(1.05)",
-//       backgroundColor: "#B569FC !important",
-//     },
-//   },
-// });
-
 const Home = () => {
-  // const styling = styles();
   return (
     <div className={classes.layout}>
       <section className={classes["landing-section"]}>
