@@ -7,7 +7,7 @@ function Item({ item }) {
     <div
       className={classes["benefits-section-carousel-layout"]}
       style={{
-        height: "auto",
+        height: "26rem",
         width: "100%",
         padding: "3rem 3rem 3rem 0",
         display: "flex",
@@ -74,7 +74,7 @@ export default function BenefitsCarousel() {
         onChange={handleChange}
         interval={4000}
         animation="slide"
-        indicators={false}
+        indicators={true}
         stopAutoPlayOnHover
         swipe
         className={classes["my-carousel"]}

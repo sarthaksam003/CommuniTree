@@ -3,9 +3,6 @@ import { makeStyles } from "@mui/styles";
 import { Container, Box, Typography, Link } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import styles from "./Footer.module.css";
-// import Box from "@mui/core/Box";
-// import Typography from "@mui/core/Typography";
-// import Link from "@mui/material/Link";
 
 const useStyles = makeStyles(() => ({
   rootBox: {
@@ -19,9 +16,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     alignItems: "center !important",
     marginRight: "auto",
-    // marginLeft: useTheme().spacing(3),
     marginLeft: "1rem",
-    // marginBottom: useTheme().spacing(0),
     marginBottom: "0rem",
 
     [useTheme().breakpoints.down("md")]: {
@@ -29,21 +24,20 @@ const useStyles = makeStyles(() => ({
       marginLeft: "auto",
       marginTop: "3rem !important",
       marginBottom: "3rem !important",
+      flexDirection: "column",
     },
     color: "white !important",
   },
   footerLink: {
     marginLeft: "3rem !important",
     marginRight: "3rem !important",
-    // marginLeft: useTheme().spacing(3),
-    // marginRight: useTheme().spacing(3),
     [useTheme().breakpoints.down("md")]: {
       marginBottom: "1rem !important",
     },
     textDecoration: "none !important",
     color: "white !important",
     fontFamily: "Montserrat !important",
-    fontSize:"1rem !important"
+    fontSize: "1rem !important",
   },
 }));
 
@@ -51,7 +45,7 @@ export default function Footer(props) {
   const classes = useStyles();
 
   const content = {
-    brand: { image: "/logo-no-background.svg", width: 150 },
+    brand: { image: "/logo-no-background1.svg", width: 200 },
     copy: "© 2023 CommuniTree All rights reserved.",
     link1: "Contact",
     link2: "Privacy Policy",
@@ -121,7 +115,7 @@ export default function Footer(props) {
             component="p"
             variant="caption"
             gutterBottom={false}
-            sx={{color:"white",fontFamily:"Montserrat",fontSize:"1rem"}}
+            sx={{ color: "white", fontFamily: "Montserrat", fontSize: "0.8rem" }}
           >
             {content["copy"]}
           </Typography>

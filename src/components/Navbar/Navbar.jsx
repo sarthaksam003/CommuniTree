@@ -134,7 +134,7 @@ const Navbar = () => {
         <div className={classes["main-logo"]}>
           <Link to="/" className={classes["logo-kebab-layout"]}>
             <img
-              src="/finalbrandlogo.png"
+              src="/logo-no-background1.svg"
               alt="brand-logo"
               className={classes.brandlogo}
             />

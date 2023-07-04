@@ -17,14 +17,12 @@ const Home = () => {
         <div className={classes["landing-section-left"]}>
           <div className={classes["landing-section-text"]}>
             Hire the
-            <span className={classes["highlight-text"]}> Right Talent</span>
-            <br />
-            with <span className={classes["highlight-text"]}>Right Skills</span>
+            <span className={classes["highlight-text"]}> Right Talent </span>
+            with the<span className={classes["highlight-text"]}> Right Skills</span>
           </div>
           <div className={classes["landing-section-subtext"]}>
             A company is like a giant clock. It only works if all the little
-            cogs mesh together. <br />
-            We help you find them.
+            cogs mesh together. We help you find them.
           </div>
           <div>
             <Link to="/login">
